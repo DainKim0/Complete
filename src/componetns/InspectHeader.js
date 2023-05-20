@@ -1,11 +1,13 @@
 import React from "react";
 import { ReactComponent as HomeIcon } from ".././asset/Home.svg";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const InspectHeaderBox = styled.header`
   padding: 35px 20px;
   border-bottom: 4px solid;
   position: relative;
+  cursor: pointer;
 `;
 
 const HeaderText = styled.h2`
@@ -20,8 +22,14 @@ const HeaderText = styled.h2`
 `;
 
 export default function InspectHeader({ text }) {
+  const navigate = useNavigate(); // Move the hook inside the functional component
+
+  const handleHomeClick = () => {
+    navigate("/Main");
+  };
+
   return (
-    <InspectHeaderBox>
+    <InspectHeaderBox onClick={handleHomeClick}>
       <HomeIcon />
       <HeaderText>{text}</HeaderText>
     </InspectHeaderBox>

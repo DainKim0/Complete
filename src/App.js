@@ -4,6 +4,7 @@ import { GlobalStyle } from "./global-style";
 import Upload from "./pages/Upload";
 import Result from "./pages/Result";
 import DragDrop from "./componetns/DragDrop";
+import MainPage from "./pages/Main";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Upload />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/Main" element={<MainPage />} />
       </Routes>
     </BrowserRouter>
   );
