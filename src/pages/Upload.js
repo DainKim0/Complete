@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { ReactComponent as ImageIcon } from "../asset/ImageIcon.svg";
 import InspectHeader from "../componetns/InspectHeader";
 import { useNavigate } from "react-router-dom";
+import DragDrop from "../componetns/DragDrop";
 
 const UploadBox = styled.div`
   background: #faf5f1;
@@ -18,7 +19,6 @@ const UploadBox = styled.div`
 
 const UploadMain = styled.main`
   display: flex;
-  justify-content: space-between;
   padding: 40px 0;
   gap: 40px;
 
@@ -30,7 +30,7 @@ const UploadMain = styled.main`
 `;
 
 const UploadCotainer = styled.div`
-  width: 50%;
+  width: ${({ files }) => (files ? 50 : 100)}%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -103,16 +103,17 @@ const ProcessButton = styled.div`
 `;
 
 export default function Upload() {
+  const [files, setFiles] = useState([]);
   const navigate = useNavigate();
+  useEffect(() => {
+    console.log(files);
+  }, [files]);
   return (
     <UploadBox>
-      <InspectHeader text="upload home" />
+      <InspectHeader text=" Image Upload" />
       <UploadMain>
-        <UploadCotainer>
-          <ImageInputBox>
-            <ImageIcon />
-            <ImageText>Drag images to upload</ImageText>
-          </ImageInputBox>
+        <UploadCotainer files={!files.length}>
+          <DragDrop files={files} setFiles={setFiles} />
           <ImageButton>
             <input
               type="file"
@@ -124,24 +125,34 @@ export default function Upload() {
             </label>
           </ImageButton>
         </UploadCotainer>
-        <UploadCotainer>
-          <ProcessList>
-            <ProcessItem>
-              <ImageIcon width="60px" height="60px" />
-              <ProcessInfo>
-                <div>Photo.png</div>
-                <ProcessBar></ProcessBar>
-                <ProcessText>
-                  <div>50% done</div>
-                  <div>90KB/sec</div>
-                </ProcessText>
-              </ProcessInfo>
-            </ProcessItem>
-          </ProcessList>
-          <ProcessButton onClick={() => navigate("/result")}>
-            AI 진단 시작
-          </ProcessButton>
-        </UploadCotainer>
+        {files.length > 0 && (
+          <UploadCotainer files={!files.length}>
+            <ProcessList>
+              {files.map((file) => {
+                const {
+                  id,
+                  object: { name },
+                } = file;
+                return (
+                  <ProcessItem key={id}>
+                    <ImageIcon width="60px" height="60px" />
+                    <ProcessInfo>
+                      <div>{name}</div>
+                      <ProcessBar></ProcessBar>
+                      <ProcessText>
+                        <div>50% done</div>
+                        <div>90KB/sec</div>
+                      </ProcessText>
+                    </ProcessInfo>
+                  </ProcessItem>
+                );
+              })}
+            </ProcessList>
+            <ProcessButton onClick={() => navigate("/result")}>
+              AI 진단 시작
+            </ProcessButton>
+          </UploadCotainer>
+        )}
       </UploadMain>
     </UploadBox>
   );
