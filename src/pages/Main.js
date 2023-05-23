@@ -36,8 +36,24 @@ const BackgroundImage = styled.img`
 
 const IconContainer = styled.div`
   position: absolute;
-  top: 190px;
-  right: 640px; /* 수정된 값 */
+  top: calc(33% + 20px); /* Adjust the vertical position as needed */
+  right: calc(54.5% + 20px); /* Adjust the horizontal position as needed */
+  max-width: 50%;
+  max-height: 50%;
+
+  @media (max-width: 768px) {
+    top: calc(50% + 10px);
+    right: calc(50% + 10px);
+    max-width: 70%;
+    max-height: 70%;
+  }
+
+  @media (max-width: 480px) {
+    top: calc(60% + 5px);
+    right: calc(60% + 5px);
+    max-width: 90%;
+    max-height: 90%;
+  }
 `;
 
 const Icon = styled.img`
