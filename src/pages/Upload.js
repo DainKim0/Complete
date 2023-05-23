@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { ReactComponent as ImageIcon } from "../asset/ImageIcon.svg";
-import InspectHeader from "../componetns/InspectHeader";
+import InspectHeader from "../components/InspectHeader";
 import { useNavigate } from "react-router-dom";
-import DragDrop from "../componetns/DragDrop";
+import DragDrop from "../components/DragDrop";
 
 const UploadBox = styled.div`
   background: #faf5f1;

@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import InspectHeader from "../componetns/InspectHeader";
+import InspectHeader from "../components/InspectHeader";
 
 const ResultBox = styled.div`
   background: #faf5f1;
@@ -103,14 +103,14 @@ export default function Result() {
             <ResultBar>
               <BarProcess process={50} />
             </ResultBar>
-            <ResultText>54%</ResultText>
+            <ResultText>78%</ResultText>
           </ResultInfo>
           <ReultDescription>
             <DescriptionTitle>
               <strong>결막염 진단 확률 78%</strong>입니다.
             </DescriptionTitle>
             <DescriptionText>
-              신속하게 근처 동물병원을 내원하여 정확한 진단과 치료를 받으시길
+              근처 동물병원에 신속하게 내원하여 정확한 진단과 치료를 받으시길
               바랍니다.
             </DescriptionText>
           </ReultDescription>
