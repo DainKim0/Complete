@@ -1,0 +1,105 @@
+.loginWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginText {
+  width: 90%;
+  height: 37.8px;
+  font-size: 27px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 2.7px solid #fff;
+  box-shadow: 0px 3.6px rgba(0, 0, 0, 0.225);
+  text-shadow: 0px 3.6px 3.6px rgba(0, 0, 0, 0.225);
+  outline: none;
+  margin-bottom: 20.7px;
+  font-weight: 360;
+  line-height: 32.4px;
+  font-family: "Inter";
+}
+
+.loginText::placeholder {
+  color: #fff;
+  font-weight: 360;
+  line-height: 32.4px;
+  font-family: "Inter";
+}
+
+.certifyWrap {
+  width: 90%;
+}
+
+.certifyText {
+  width: 54%;
+  height: 37.8px;
+  font-size: 27px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 2.7px solid #fff;
+  box-shadow: 0px 3.6px rgba(0, 0, 0, 0.225);
+  text-shadow: 0px 3.6px 3.6px rgba(0, 0, 0, 0.225);
+  outline: none;
+  margin-bottom: 20.7px;
+  font-weight: 360;
+  line-height: 32.4px;
+  font-family: "Inter";
+}
+
+.certifyText::placeholder {
+  color: #fff;
+  font-weight: 360;
+  line-height: 32.4px;
+  font-family: "Inter";
+  text-shadow: 0px 3.6px 3.6px rgba(0, 0, 0, 0.225);
+}
+
+.certifyBtn {
+  color: #faf5f5;
+  font-size: 21.6px;
+  font-weight: 360;
+  line-height: 26.1px;
+  font-family: "Inter";
+  text-shadow: 0px 3.6px 3.6px rgba(0, 0, 0, 0.225);
+  text-decoration: none;
+  margin-left: 32.4px;
+}
+
+.marginArea {
+  margin-top: 16.2px;
+  margin-bottom: 16.2px;
+}
+
+.signupBtn {
+  width: 90%;
+  height: 61.2px;
+  background-color: #cd9d71;
+  box-shadow: 0px 3.6px 3.6px rgba(0, 0, 0, 0.225);
+  text-decoration: none;
+  color: #fff;
+  font-size: 21.6px;
+  font-family: "Inter";
+  text-shadow: 0px 3.6px 3.6px rgba(0, 0, 0, 0.225);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 34.2px;
+}
+
+@media (max-width: 768px) {
+  .loginText {
+    width: 100%;
+  }
+
+  .certifyText {
+    width: 100%;
+  }
+
+  .signupBtn {
+    width: 100%;
+  }
+}

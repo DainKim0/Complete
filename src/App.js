@@ -5,6 +5,7 @@ import DragDrop from "./components/DragDrop";
 import Upload from "./pages/Upload";
 import Result from "./pages/Result";
 import Main from "./pages/Main";
+import Signup from "./pages/Signup";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/main" element={<Main />} />
         <Route path="/" element={<Main />} />
         <Route path="/upload" element={<Upload />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );

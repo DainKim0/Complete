@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import mainBackground from "./main_background.png";
 import diagnosisIcon from "./diagnosis.png";
+import LoginbuttonImg from "./loginbutton.png";
 
 const FullScreenImage = styled.div`
   position: absolute;
@@ -36,8 +37,8 @@ const BackgroundImage = styled.img`
 
 const IconContainer = styled.div`
   position: absolute;
-  top: calc(33% + 20px); /* Adjust the vertical position as needed */
-  right: calc(54.5% + 20px); /* Adjust the horizontal position as needed */
+  top: calc(33% + 20px);
+  right: calc(54.5% + 20px);
   max-width: 50%;
   max-height: 50%;
 
@@ -63,11 +64,25 @@ const Icon = styled.img`
   opacity: 0;
 `;
 
+const LoginButton = styled.img`
+  position: absolute;
+  top: calc(6% + 40px);
+  right: calc(67% + 20px);
+  max-width: 50%;
+  max-height: 50%;
+  width: 150px;
+  height: 150px;
+  opacity: 0;
+`;
 function Main() {
   const navigate = useNavigate();
 
   const handleIconClick = () => {
     navigate("/upload");
+  };
+
+  const handleButtonClick = () => {
+    navigate("/signup");
   };
 
   return (
@@ -82,6 +97,11 @@ function Main() {
               onClick={handleIconClick}
             />
           </IconContainer>
+          <LoginButton
+            src={LoginbuttonImg}
+            alt="Login Button"
+            onClick={handleButtonClick}
+          />
         </ImageContainer>
       </FullScreenImage>
     </div>
