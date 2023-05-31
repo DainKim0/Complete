@@ -1,9 +1,10 @@
 import React from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import mainBackground from "./main_background.png";
-import diagnosisIcon from "./diagnosis.png";
-import LoginbuttonImg from "./loginbutton.png";
+import mainBackground from "../asset/main_background.png";
+import diagnosisIcon from "../asset/diagnosis.png";
+import LoginbuttonImg from "../asset/loginbutton.png";
+import SignupbuttonImg from "../asset/signup.png";
 
 const FullScreenImage = styled.div`
   position: absolute;
@@ -14,6 +15,7 @@ const FullScreenImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f3c4a0;
 `;
 
 const ImageContainer = styled.div`
@@ -41,20 +43,6 @@ const IconContainer = styled.div`
   right: calc(54.5% + 20px);
   max-width: 50%;
   max-height: 50%;
-
-  @media (max-width: 768px) {
-    top: calc(50% + 10px);
-    right: calc(50% + 10px);
-    max-width: 70%;
-    max-height: 70%;
-  }
-
-  @media (max-width: 480px) {
-    top: calc(60% + 5px);
-    right: calc(60% + 5px);
-    max-width: 90%;
-    max-height: 90%;
-  }
 `;
 
 const Icon = styled.img`
@@ -66,14 +54,26 @@ const Icon = styled.img`
 
 const LoginButton = styled.img`
   position: absolute;
-  top: calc(6% + 40px);
+  top: calc(2% + 40px);
+  right: calc(67% + 20px);
+  max-width: 50%;
+  max-height: 40%;
+  width: 200px;
+  height: 130px;
+  opacity: 0;
+`;
+
+const SignupButton = styled.img`
+  position: absolute;
+  top: calc(23% + 40px);
   right: calc(67% + 20px);
   max-width: 50%;
   max-height: 50%;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 50px;
   opacity: 0;
 `;
+
 function Main() {
   const navigate = useNavigate();
 
@@ -82,6 +82,10 @@ function Main() {
   };
 
   const handleButtonClick = () => {
+    navigate("/login");
+  };
+
+  const handleSignupButtonClick = () => {
     navigate("/signup");
   };
 
@@ -101,6 +105,11 @@ function Main() {
             src={LoginbuttonImg}
             alt="Login Button"
             onClick={handleButtonClick}
+          />
+          <SignupButton
+            src={SignupbuttonImg}
+            alt="Signup Button"
+            onClick={handleSignupButtonClick}
           />
         </ImageContainer>
       </FullScreenImage>

@@ -6,6 +6,7 @@ import Upload from "./pages/Upload";
 import Result from "./pages/Result";
 import Main from "./pages/Main";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<Main />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

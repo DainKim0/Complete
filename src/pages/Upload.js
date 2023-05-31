@@ -7,7 +7,7 @@ import DragDrop from "../components/DragDrop";
 
 const UploadBox = styled.div`
   background: #faf5f1;
-  width: 100%;
+  width: 100vw; /* 변경된 부분 */
   min-height: 100vh;
   padding: 0 30px;
   box-sizing: border-box;
@@ -105,6 +105,7 @@ const ProcessButton = styled.div`
 export default function Upload() {
   const [files, setFiles] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     console.log(files);
   }, [files]);
