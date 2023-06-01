@@ -81,15 +81,23 @@ const DescriptionTitle = styled.div`
 const DescriptionText = styled.p`
   color: rgba(0, 0, 0, 0.48);
 `;
-const ResultButton = styled.div`
+const ResultButton = styled.a`
+  display: block;
+  text-decoration: none;
   background: #c0a489;
   border: 3px solid #746b62;
   border-radius: 15px;
   text-align: center;
   padding: 15px 0;
+  color: #ffffff;
+  cursor: pointer;
 `;
 
 export default function Result() {
+  const handleFindAnimalHospitals = () => {
+    window.location.href = "https://map.naver.com/";
+  };
+
   return (
     <ResultBox>
       <InspectHeader text={"AI 진단 결과"} />
@@ -114,7 +122,9 @@ export default function Result() {
               바랍니다.
             </DescriptionText>
           </ReultDescription>
-          <ResultButton>근처 동물병원 찾기</ResultButton>
+          <ResultButton onClick={handleFindAnimalHospitals}>
+            근처 동물병원 찾기
+          </ResultButton>
         </ResultCotainer>
       </ResultMain>
     </ResultBox>

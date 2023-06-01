@@ -5,6 +5,7 @@ import mainBackground from "../asset/main_background.png";
 import diagnosisIcon from "../asset/diagnosis.png";
 import LoginbuttonImg from "../asset/loginbutton.png";
 import SignupbuttonImg from "../asset/signup.png";
+import MyPagebuttonImg from "../asset/Mypagebutton.png";
 
 const FullScreenImage = styled.div`
   position: absolute;
@@ -74,6 +75,17 @@ const SignupButton = styled.img`
   opacity: 0;
 `;
 
+const MyPageButton = styled.img`
+  position: absolute;
+  top: calc(62% + 40px);
+  right: calc(61% + 20px);
+  max-width: 50%;
+  max-height: 50%;
+  width: 150px;
+  height: 150px;
+  opacity: 0;
+`;
+
 function Main() {
   const navigate = useNavigate();
 
@@ -87,6 +99,10 @@ function Main() {
 
   const handleSignupButtonClick = () => {
     navigate("/signup");
+  };
+
+  const handleMyPageButtonClick = () => {
+    navigate("/petlist");
   };
 
   return (
@@ -110,6 +126,11 @@ function Main() {
             src={SignupbuttonImg}
             alt="Signup Button"
             onClick={handleSignupButtonClick}
+          />
+          <MyPageButton
+            src={MyPagebuttonImg}
+            alt="My Page Button"
+            onClick={handleMyPageButtonClick}
           />
         </ImageContainer>
       </FullScreenImage>
