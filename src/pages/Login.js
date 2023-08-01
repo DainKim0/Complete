@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "../components/loginform.module.css";
-import LoginForm from "../components/LoginForm.js";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -15,6 +14,26 @@ function Login() {
     console.log(click);
   }
 
+  function kakaoLogin() {
+    window.Kakao.Auth.login({
+      scope: "profile_nickname, profile_image, account_email",
+      success: function (authObj) {
+        console.log(authObj);
+        window.Kakao.API.request({
+          url: "/v2/user/me",
+          success: (res) => {
+            const kakao_account = res.kakao_account;
+            console.log(kakao_account);
+            navigate("/main");
+          },
+        });
+      },
+      fail: function (error) {
+        console.log(error);
+      },
+    });
+  }
+  
   return (
     <div className={styles.mainWrap}>
       <div className={styles.mainImgBox}>
@@ -36,7 +55,7 @@ function Login() {
             </div>
 
             {/* 카카오 로그인 버튼 */}
-            <div className={styles.kakaoLogin}></div>
+            <div className={styles.kakaoLogin} onClick={kakaoLogin}></div>
           </form>
         </div>
       </div>
